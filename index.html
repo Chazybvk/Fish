@@ -1,0 +1,168 @@
+	<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+			<link rel="preconnect" href="https://fonts.googleapis.com">
+			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+			<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300&family=Yeseva+One&display=swap" rel="stylesheet">
+	<title>Корюшка</title>
+</head>
+<body>
+			<div class="screen">
+			<a href="#popup1" class="view"><button class="viewmore">Нажми меня</button></a>
+			</div>
+			<!-- ПОПАП -->
+					<div id="popup1" class="popup">
+						<a href="#" class="popup_area"></a>
+					<div class="popup_body">
+					<div class="popup_content">
+						<a href="#" class="popup_close">&times</a>
+						<div class="popup_title"><h1>Сезон корюшки открыт!</h1></div>
+						<div class="popup_bg popup1"></div>
+						      
+						<div class="popup_text"><p>Уточните подробности у официанта,</br> или по телефону!</p></div>
+					</div>
+					</div>
+					</div>
+			<!-- ПОПАП -->
+<style>
+	* {
+	font-family: 'Yeseva One', sans-serif;
+	font-size: 2rem;
+}
+
+a, a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+a:focus,a:active{outline: none;}
+
+h1 {
+	color: wheat;
+	filter: drop-shadow(2px 4px 6px black);
+	transform: rotateZ(2deg);
+	margin: 0;
+}
+p {
+	color: wheat;
+	filter: drop-shadow(2px 4px 6px black);
+	transform: rotateZ(-2deg);
+	margin: 0;
+}
+.screen {
+	width: 100vw;
+	height: 100vh;
+	align-items: center;
+	justify-content: center;
+	display: flex;
+}
+.view {
+	visibility: visible;
+}
+  .popup {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.9);
+	top: 0;
+	left: 0;
+	opacity: 0;
+	visibility: hidden;
+	overflow-y: auto;
+	overflow-x: hidden;
+	transition: all 0.8s ease 0s;
+}
+.popup_text {
+	text-align: center;
+	max-width: 800px;
+}
+.popup_area {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+}
+/*.popup:target {
+	opacity: 1;
+	visibility: visible;
+}
+.popup:target .popup_content {
+	transform: perspective(600px) translate(0px, 0px) rotateX(0deg);
+	opacity: 1;
+}*/
+.popup_body {
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 5vw 1vw;
+}
+.popup_content{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 3vw;
+	position: relative;
+	transition: all 0.8s ease 0s;
+	opacity: 0;
+	transform: perspective(600px) translate(0px, -100%) rotateX(45deg);
+}
+.popup_close{
+	position: absolute;
+	right: 1vw;
+	top: -2vh;
+	color: wheat;
+}
+.popup_bg{
+	min-width: 800px;
+	min-height: 600px;
+	margin: 2vw 0;
+	/*box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.8);*/
+	background: url("https://psv4.userapi.com/c237331/u246471073/docs/d43/1eeefc19ef3e/koryushka-transformed.png?extra=sixu9338jvKSWKkAbm4bvlpKVlvZytZM0VfWQLDKbkQ2PbH_e_02dYqauX5BXmOTJVtWX-EQjLUo838PLKv-ysvnVZEejNzJEcCJbRAMcM3xr5D23VyuzDrN0awNAMyU7ZYZQza003kgT10cMKyhWhDSYg") center / cover no-repeat;;
+}
+</style>
+
+<script type="text/javascript">
+var popup = document.querySelector('.popup');
+var popup_content = document.querySelector('.popup_content');
+var popup_close = document.querySelector('.popup_close');
+var popup_area = document.querySelector('.popup_area');
+var viewmore = document.querySelector('.viewmore');
+
+function showPopUp(){
+
+popup.style.opacity = "1";
+popup.style.visibility = "visible";
+popup.style.transform = "perspective(600px) translate(0px, 0px) rotateX(0deg);";
+popup_content.style.opacity = "1";
+popup_content.style.transform = "perspective(600px) translate(0px, 0px) rotateX(0deg)";
+};
+
+
+function closePopUp(){
+popup.style.opacity = "0";
+popup.style.visibility = "hidden";
+popup.style.transform = "perspective(600px) translate(0px, 0px) rotateX(0deg)";
+popup_content.style.opacity = "0";
+popup_content.style.transform = "perspective(600px) translate(0px, -100%) rotateX(45deg)";	
+};
+
+viewmore.addEventListener('click', function () {
+	showPopUp();
+}
+);
+
+popup_close.addEventListener('click', function () {
+	closePopUp();
+}
+);
+
+popup_area.addEventListener('click', function () {
+	closePopUp();
+}
+);
+
+setTimeout(() => showPopUp(),10000);
+</script>
+</body>
+</html>
